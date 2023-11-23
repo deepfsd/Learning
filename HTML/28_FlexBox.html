@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <style>
+        .container{
+            border: 2px solid rgb(0, 0, 0);
+            height: 500px;
+            display: flex;
+
+            /* flex-direction: row; by default flex is in row
+            flex-direction: column;
+            flex-direction: column-reverse;
+            flex-direction: row-reverse;
+            
+            flex-wrap: wrap-reverse;
+            flex-wrap: nowrap;
+            flex-wrap: wrap; */
+
+            flex-flow: row wrap;
+
+
+            justify-content: center;
+            justify-content: space-between;
+            justify-content: space-evenly;
+            justify-content: space-around;
+
+            align-items: flex-start;
+            align-items: flex-end;
+            align-items: center;
+            align-items: stretch;
+            
+          
+
+        }
+        .item{
+            width: 200px;
+            height: 150px;
+            background-color: tomato;
+            border: 2px solid rgb(12, 31, 11);
+            margin: 8px;
+            padding: 3px;
+        }
+
+        #item-1{
+            /*order: 2;*/ /*Higer the order later its saw in container*/ 
+            /* flex-grow: 2;
+            flex-shrink: 2; */
+        }
+        #item-2{
+            /* flex-grow: 3;
+            flex-shrink: 3; */
+            flex-basis: 260px; /* if row then its width and if coloum then it is height */
+        }
+        #item-3{
+            /* flex: 2 2 300px; */
+            align-self: flex-start;
+            align-self: flex-end;
+            align-self: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>this is Flexbox</h1>
+    <div class="container">
+        <div class="item" id="item-1">First box</div>
+        <div class="item" id="item-2">Second box</div>
+        <div class="item" id="item-3">Third box</div>
+    </div>
+</body>
+</html>

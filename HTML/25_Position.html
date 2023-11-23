@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position</title>
+    <style>
+        /* postion: static (default), relative, absolute, fixed, sticky  */
+
+        .box{
+            border: 2px solid chartreuse;
+            margin: 2px 1px;
+            display: inline-block;
+            width: 94px;
+            height: 122px;
+        }
+        .container{
+            border: 2px solid red;
+            background-color: rgb(146, 151, 165);
+            width: 3444px;
+            height: 3434px;
+        }
+        #b3ox{
+            position: sticky;
+            top: 2px;
+            /* bottom: 0px; */
+            /* top: 34px;
+            left:  134px; */
+            /* relative 1)if you want gap in old position use relative */
+            /* absolute 2)if you don't want any gap use absolute */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box" id="box1">1</div>
+        <div class="box" id="bo2x">2</div>
+        <div class="box" id="b3ox">Chat with me</div>
+        <div class="box" id="4box">4</div>
+    </div>
+</body>
+</html>

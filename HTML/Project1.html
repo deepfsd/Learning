@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIPS</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            background: url('IMG/vips.jpg');
+
+
+        }
+
+        .left {
+
+
+            display: inline-block;
+            position: absolute;
+            top: 0px;
+            left: 1px;
+        }
+
+        .mid {
+            display: block;
+            width: 48%;
+            margin: 2px auto;
+
+
+        }
+
+        .right {
+
+
+            display: inline-block;
+            position: absolute;
+            right: 4px;
+            top: 1px;
+        }
+
+        .navbar {
+            display: inline-block;
+        }
+
+        .navbar li {
+            display: inline-block;
+            font-size: 15px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+        }
+
+        .navbar li a {
+            text-decoration: none;
+            color: rgb(126, 36, 36);
+            padding: 34px 24px;
+
+
+        }
+
+        .navbar li a:hover,
+        .navbar li a.active {
+            color: rgb(72, 69, 69);
+        }
+
+        header img {
+            width: 268px;
+            height: 57px;
+        }
+
+        .btn {
+            margin: 15px 2px;
+            color: rgb(110 34 34);
+            border:1px solid indigo;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+        .btn:hover{
+            background-color: rgb(174, 157, 186);
+        }
+
+
+        .container {
+
+            margin: 55px 355px;
+            padding: 12px 2px;
+            text-align: center;
+            height: 280px;
+            width: 47%;
+            border-radius: 12px;
+        }
+
+        .formGroup input {
+
+            display: inline-block;
+            padding: 1px 39px;
+            margin: 3px 189px;
+            width: 27%;
+
+        }
+
+        .container h1 {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .btn2 {
+            margin: 12px 15px;
+            padding: 3px 102px;
+            cursor: pointer;
+        }
+        .btn2:hover{
+            background-color: rgb(138, 44, 44);
+        }
+        .container div{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        header img{
+            border-right: 3px solid rgb(109, 24, 24);
+            border-top: 3px solid rgb(109, 24, 24);
+            border-top-left-radius: 0px;
+            border-top-right-radius: 7px;
+            border-bottom-right-radius: 7px;
+            border-bottom-left-radius: 3px;
+        }
+        .formGroup input:hover{
+            background-color: rgb(174, 157, 186);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+
+        <div class="left">
+            <img src="/IMG/logo3.png">
+
+        </div>
+
+        <div class="mid">
+            <ul class="navbar">
+                <li> <a href="#" class="active">Home</a> </li>
+                <li> <a href="#">About</a> </li>
+                <li> <a href="#">Admission 2021-2022</a> </li>
+                <li> <a href="#">Placements</a> </li>
+            </ul>
+        </div>
+
+        <div class="right">
+            <button class="btn">Contact Us</button>
+            <button class="btn">Log In</button>
+        </div>
+
+    </header>
+    <div class="container">
+        <h1>Student Verification <hr> </h1>
+        <form action="noaction.php">
+            <div class="formGroup">
+                <input type="text" placeholder="Enter Name">
+                <input type="text" placeholder="Enter CET Rank">
+                <input type="text" placeholder="Enter Enrollment No.">
+                <input type="text" placeholder="Enter Shift">
+                D.O.B<input type="date" placeholder="Enter Date">
+                <button class="btn2">Submit</button> <hr>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

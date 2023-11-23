@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alligment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-b48;
+        }
+        body{
+            background-color: cornflowerblue;
+        }
+
+        .container {
+            width: 1000px;
+            border: 3px solid purple;
+            margin: 33px auto;
+            font-family: 'Ubuntu', sans-serif;
+            padding: 20px;
+            background-color: rgb(245, 225, 208);
+
+        }
+
+        .item {
+            border: 2px solid gray;
+            padding: 13px 7px;
+            margin: 12px 3px;
+            background-color: rgb(255, 224, 224);
+        }
+
+        #fruit {
+            float: right;
+            width: 48%;
+        }
+
+        #computer {
+            float: left;
+            width: 47%;
+        }
+
+        #glass {
+            /* float: left; */
+            clear: both;
+            width: 97.6%;
+        }
+
+        p,
+        h3 {
+            /* text-align: center;
+            text-align: right;
+            text-align: left; */
+            text-align: justify;
+        }
+
+        h1 {
+            margin:23px auto;
+            width: 347px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome To my Store</h1>
+        <div id="fruit" class="item">
+            <h3>FRUITS</h3>
+            <p id="fruitPara" class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum numquam
+                incidunt nesciunt tempore adipisci explicabo, cumque beatae ipsum quas ut aliquam praesentium temporibus
+                assumenda tempora esse fugiat aspernatur voluptas soluta! Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Nostrum, enim soluta. Nihil ipsa alias vel voluptatum corrupti commodi aperiam
+                laboriosam ullam maxime excepturi. Nam soluta, vitae animi ab iste voluptatum distinctio minus cum
+                dolorum delectus unde culpa, dolor voluptates consectetur? lorem20</p>
+        </div>
+        <div id="computer" class="item">
+            <h3>COMPUTER</h3>
+            <p id="computerPara" class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum numquam
+                incidunt nesciunt tempore adipisci explicabo, cumque beatae ipsum quas ut aliquam praesentium temporibus
+                assumenda tempora esse fugiat aspernatur voluptas soluta! Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Error ipsam ipsa ab magni minima, omnis nemo expedita cum. Et possimus, nostrum autem
+                nisi asperiores voluptatum, corrupti accusamus corporis alias quo sunt, ratione assumenda inventore vero
+                veritatis incidunt eveniet explicabo consequuntur lorem20.</p>
+        </div>
+        <div id="glass" class="item">
+            <h3>GLASS</h3>
+            <p id="glassPara" class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum numquam
+                incidunt nesciunt tempore adipisci explicabo, cumque beatae ipsum quas ut aliquam praesentium temporibus
+                assumenda tempora esse fugiat aspernatur voluptas soluta!</p>
+        </div>
+        <div id="tile" class="item">
+            <h3>TILES</h3>
+            <p id="tilePara" class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum numquam
+                incidunt nesciunt tempore adipisci explicabo, cumque beatae ipsum quas ut aliquam praesentium temporibus
+                assumenda tempora esse fugiat aspernatur voluptas soluta!</p>
+        </div>
+    </div>
+</body>
+
+</html>

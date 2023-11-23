@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Quaries</title>
+    <style>
+        .box {
+            font-size: 44px;
+            text-align: center;
+            background-color: rgb(212, 56, 56);
+            color: wheat;
+            display: none;
+        }
+
+        @media (min-width:0px) and (max-width:375px) {
+            #box-1 {
+                display: block;
+                background-color: rgb(43, 38, 15);
+            }
+        }
+
+        @media (min-width:376px) and (max-width:768px) {
+            #box-2 {
+                display: block;
+                background-color: rgb(148, 134, 58);
+            }
+        }
+
+        @media (min-width:769px) and (max-width:1024px) {
+            #box-3 {
+                display: block;
+                background-color: blueviolet;
+            }
+        }
+
+        @media (min-width:1025px) and (max-width:1366px) {
+            #box-4 {
+                display: block;
+                background-color: rgb(34, 199, 171);                                
+            }
+        }
+
+        @media (min-width:1367px) and (max-width:2652px) {
+            #box-5 {
+                display: block;
+                background-color: blue;                
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box-1">IPHONE X</div>
+    <div class="box" id="box-2">IPAD</div>
+    <div class="box" id="box-3">IPAD PRO</div>
+    <div class="box" id="box-4">DESKTOP-COMPUTER</div>
+    <div class="box" id="box-5">WIDE-SCREEN-DESKTOP-COMPUTER</div>
+</body>
+
+</html>
