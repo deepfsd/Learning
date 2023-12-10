@@ -1,0 +1,28 @@
+<%- include("partials/registerHeader.ejs") %>
+
+<main class="form-signin w-100 m-auto d-flex justify-content-center">
+    <form class="form"  method="post" action="/register">
+      <h1 class="h3 text-center mb-3 fw-normal">Please REGISTER</h1>
+      <div class="form-floating">
+        <input type="text" class="form-control my-1 <%= locals.userName %>" id="floatingInput" placeholder="Username" name="username">
+        <label for="floatingInput">Username</label>
+        <% if(locals.error && error.username){ %>
+            <span class="text-danger"><%= error.username.msg %></span>
+        <% } %>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control my-1 <%= locals.passWord %>" id="floatingPassword" placeholder="Password" name="password">
+        <label for="floatingPassword">Password</label>
+        <% if(locals.error && error.password){ %>
+          <span class="text-danger"><%= error.password.msg %></span>
+       <% } %>
+       <% if(locals.logerror){ %>
+          <span class="text-danger">*Username is already taken.</span>
+       <% } %>
+     </div>
+      <button class="btn btn-primary w-100 py-2 my-2" type="submit">REGISTER</button>
+    </form>
+  </main>
+
+<%- include("partials/footer.ejs") %>
+    

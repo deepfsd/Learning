@@ -1,0 +1,66 @@
+body > div > header > div.col-md-3.mb-2.mb-md-0 > a > p{
+    margin-top: 0;
+    margin-bottom: 0rem;
+}
+body > div > header > div.col-md-3.mb-2.mb-md-0 > a > p {
+    margin-top: 0;
+    font-weight: 800;
+    font-family: cursive;
+    font-size: 24px;
+    margin-bottom: 0rem;
+}
+.com{
+    margin-top: 0;
+    font-weight: 300;
+    font-family: system-ui;
+    font-size: 27px;
+    font-style: oblique;
+    margin-bottom: 0rem;
+}
+
+@media (min-width: 1400px){
+
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 800px;
+    }
+}
+
+@media (min-width: 1200px){
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: 700px;
+    }
+}
+
+@media (min-width: 992px){
+    
+    .container, .container-lg, .container-md, .container-sm {
+        max-width: 750px;
+    }
+}
+
+.px-3 {
+    padding-right: 1rem!important;
+    padding-left: 1rem!important;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: var(--bs-body-font-family);
+    font-size: var(--bs-body-font-size);
+    font-weight: var(--bs-body-font-weight);
+    line-height: var(--bs-body-line-height);
+    color: var(--bs-body-color);
+    text-align: var(--bs-body-text-align);
+    background-color: var(--bs-body-bg);
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.form{
+    width: 48%;
+}
+
+.username{
+    border-color: red;
+}
