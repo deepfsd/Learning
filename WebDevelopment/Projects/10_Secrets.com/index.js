@@ -33,12 +33,27 @@ app.post('/register',[
             })
             if(response.data.success){
                 // render login page
-                res.redirect('/');
+                res.redirect('/loginpage');
             }
         } catch (error) {
             res.render('../view/register.ejs', {logerror: error});
         }
     }
+})
+
+app.get('/loginpage', (req, res)=>{
+    res.render('../view/login.ejs');
+})
+
+app.post('/login',[
+    check('username').notEmpty().withMessage('Name is required'),
+    check('password').notEmpty().withMessage('Password is required')
+], async (req, res)=>{
+    const errors = validationResult(req);
+    const user = req.body.username;
+    const pass = req.body.password;
+
+    
 })
 
 app.listen(port, ()=>{
