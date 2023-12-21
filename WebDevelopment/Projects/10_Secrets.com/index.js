@@ -24,7 +24,7 @@ app.post('/register',[
     const pass = req.body.password;
 
     if(!errors.isEmpty()){
-        res.render('../view/register.ejs', {error: errors.mapped()});
+        res.render('../view/register.ejs', {emperror: errors.mapped()});
     }else{
         try {
             const response = await axios.post('https://secrets-api.appbrewery.com/register',{
@@ -36,7 +36,7 @@ app.post('/register',[
                 res.redirect('/loginpage');
             }
         } catch (error) {
-            res.render('../view/register.ejs', {logerror: error});
+            res.render('../view/register.ejs', {valierror: error});
         }
     }
 })
@@ -51,9 +51,26 @@ app.post('/login',[
 ], async (req, res)=>{
     const errors = validationResult(req);
     const user = req.body.username;
-    const pass = req.body.password;
-
-    
+    const pass = req.body.password; 
+    if(!errors.isEmpty){
+        res.render('../view/login.ejs', {emperror: errors.mapped()})
+    }else{
+        console.log("No Error");
+        try {
+            // const response = await axios.get('https://secrets-api.appbrewery.com/all?page=1', {
+            // auth : {
+            //     username : `${user}`,
+            //     password : `${pass}`
+            // },
+            // })
+            // console.log('No error in getting response');
+            // console.log(response);
+            res.render('../view/main.ejs');
+        } catch (error) {
+            console.log(error);
+            res.render('../view/login.ejs');
+        }
+    } 
 })
 
 app.listen(port, ()=>{
