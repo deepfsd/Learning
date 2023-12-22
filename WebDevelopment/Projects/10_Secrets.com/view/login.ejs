@@ -2,17 +2,17 @@
 
 <main class="form-signin w-100 m-auto d-flex justify-content-center login">
     <form class="form"  method="post" action="/login">
-      <!-- <h1 class="h3 text-center mb-3 fw-normal">LOGIN</h1> -->
-      <div class="form-floating">
-        <input type="text" class="form-control my-1 <%= locals.userName %>" id="floatingInput" placeholder="Username" name="username">
-        <label for="floatingInput">Username</label>
+      <h1 class="h3 text-center mb-5 fw-normal">BASIC AUTH</h1>
+      <div class="form w-100">
+        <input type="text" autocomplete="off" class="input form-control my-2 <%= locals.userName %>" id="floatingInput" placeholder="Username" name="username">
+        <!-- <label for="floatingInput">Username</label> -->
         <% if(locals.emperror && emperror.username){ %>
             <span class="text-danger"><%= error.username.msg %></span>
         <% } %>
       </div>
-      <div class="form-floating">
-        <input type="password" class="form-control my-1 <%= locals.passWord %>" id="floatingPassword" placeholder="Password" name="password">
-        <label for="floatingPassword">Password</label>
+      <div class="form w-100">
+        <input type="password" autocomplete="off" class="input form-control my-1 <%= locals.passWord %>" id="floatingPassword" placeholder="Password" name="password">
+        <!-- <label for="floatingPassword">Password</label> -->
         <% if(locals.emperror && error.password){ %>
           <span class="text-danger"><%= error.password.msg %></span>
        <% } %>
