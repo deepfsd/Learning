@@ -20,7 +20,12 @@
           <span class="text-danger">*Username is already taken.</span>
        <% } %>
      </div>
-      <button class="btn w-100 py-2 my-2  logButton" type="submit">Login</button>
+      <button class="w-100 py-2 my-2  logButton" type="submit">Login</button>
+      <span class="text-danger">
+        <% if(locals.error){ %>
+            <%= error %>
+        <% } %>
+      </span>
     </form>
   </main>
 

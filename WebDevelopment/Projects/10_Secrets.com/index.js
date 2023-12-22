@@ -57,18 +57,20 @@ app.post('/login',[
     }else{
         console.log("No Error");
         try {
-            // const response = await axios.get('https://secrets-api.appbrewery.com/all?page=1', {
-            // auth : {
-            //     username : `${user}`,
-            //     password : `${pass}`
-            // },
-            // })
-            // console.log('No error in getting response');
-            // console.log(response);
-            res.render('../view/main.ejs');
+            const response = await axios.get('https://secrets-api.appbrewery.com/all?page=1', {
+            auth : {
+                username : `${user}`,
+                password : `${pass}`
+            },
+            })
+                const randomIndex = Math.floor(Math.random() * response.data.length);
+                const secret = (response.data[randomIndex].secret);
+                const emScore = (response.data[randomIndex].emScore);
+                const username = (response.data[randomIndex].username);
+                res.render('../view/main.ejs', {sec: secret, em: emScore, user: username});
+
         } catch (error) {
-            console.log(error);
-            res.render('../view/login.ejs');
+            res.render('../view/login.ejs', {error: "*Incorrect Username & Password"});
         }
     } 
 })

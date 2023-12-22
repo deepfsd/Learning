@@ -208,6 +208,9 @@ body {
 .logButton:hover {
     color: white;
 }
+.logButton:focus-visible {
+    border: none;
+}
 
 .btnLogin {
     display: grid;
@@ -261,5 +264,3 @@ body {
            inset -20px -20px 60px #ffffff;
     transition: 0.3s;
    }
-
- 
