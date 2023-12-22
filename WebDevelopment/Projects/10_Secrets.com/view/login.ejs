@@ -1,33 +1,40 @@
 <%- include("partials/loginHeader.ejs") %>
 
-<main class="form-signin w-100 m-auto d-flex justify-content-center login">
-    <form class="form"  method="post" action="/login">
-      <h1 class="h3 text-center mb-5 fw-normal">BASIC AUTH</h1>
-      <div class="form w-100">
-        <input type="text" autocomplete="off" class="input form-control my-2 <%= locals.userName %>" id="floatingInput" placeholder="Username" name="username">
-        <!-- <label for="floatingInput">Username</label> -->
-        <% if(locals.emperror && emperror.username){ %>
-            <span class="text-danger"><%= error.username.msg %></span>
-        <% } %>
-      </div>
-      <div class="form w-100">
-        <input type="password" autocomplete="off" class="input form-control my-1 <%= locals.passWord %>" id="floatingPassword" placeholder="Password" name="password">
-        <!-- <label for="floatingPassword">Password</label> -->
-        <% if(locals.emperror && error.password){ %>
-          <span class="text-danger"><%= error.password.msg %></span>
-       <% } %>
-       <% if(locals.valierror){ %>
-          <span class="text-danger">*Username is already taken.</span>
-       <% } %>
-     </div>
-      <button class="w-100 py-2 my-2  logButton" type="submit">Login</button>
-      <span class="text-danger">
-        <% if(locals.error){ %>
+  <main class="form-signin w-100 m-auto d-flex justify-content-center login">
+    <div class="main m-auto d-flex justify-content-center">
+      <form class="form" method="post" action="/login">
+        <h1 class="h3 text-center mb-5 fw-normal">BASIC AUTH</h1>
+        <div class="form w-100">
+          <input type="text" autocomplete="off" class="input form-control my-2 <%= locals.userName %>"
+            id="floatingInput" placeholder="Username" name="username">
+          <!-- <label for="floatingInput">Username</label> -->
+          <% if(locals.emperror && emperror.username){ %>
+            <span class="text-danger">
+              <%= emperror.username.msg %>
+            </span>
+            <% } %>
+        </div>
+        <div class="form w-100">
+          <input type="password" autocomplete="off" class="input form-control my-1 <%= locals.passWord %>"
+            id="floatingPassword" placeholder="Password" name="password">
+          <!-- <label for="floatingPassword">Password</label> -->
+          <% if(locals.emperror && emperror.password){ %>
+            <span class="text-danger">
+              <%= emperror.password.msg %>
+            </span>
+            <% } %>
+              <% if(locals.valierror){ %>
+                <span class="text-danger">*Username is already taken.</span>
+                <% } %>
+        </div>
+        <button class="w-100 py-2 my-2  logButton" type="submit">Login</button>
+        <span class="text-danger">
+          <% if(locals.error){ %>
             <%= error %>
-        <% } %>
-      </span>
-    </form>
+              <% } %>
+        </span>
+      </form>
+    </div>
   </main>
 
-<%- include("partials/footer.ejs") %>
-    
+  <%- include("partials/footer.ejs") %>

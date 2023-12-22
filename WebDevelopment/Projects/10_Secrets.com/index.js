@@ -15,8 +15,8 @@ app.get('/', (req, res)=>
 })
 
 app.post('/register',[
-    check('username').notEmpty().withMessage('Name is required'),
-    check('password').notEmpty().withMessage('Password is required')    
+    check('username').notEmpty().withMessage('username is required'),
+    check('password').notEmpty().withMessage('password is required')    
 ] ,async(req,res)=>{
 
     const errors =  validationResult(req);
@@ -46,8 +46,8 @@ app.get('/loginpage', (req, res)=>{
 })
 
 app.post('/login',[
-    check('username').notEmpty().withMessage('Name is required'),
-    check('password').notEmpty().withMessage('Password is required')
+    check('username').notEmpty().withMessage('username is required'),
+    check('password').notEmpty().withMessage('password is required')
 ], async (req, res)=>{
     const errors = validationResult(req);
     const user = req.body.username;

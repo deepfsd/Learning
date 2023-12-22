@@ -1,4 +1,4 @@
--body > div > header > div.col-md-3.mb-2.mb-md-0 > a > p{
+body > div > header > div.col-md-3.mb-2.mb-md-0 > a > p{
     margin-top: 0;
     margin-bottom: 0rem;
 }
@@ -66,25 +66,25 @@ body {
 }
 
 .register{
-    display: flex;
-    background-color: #ffffff;
-    height: 100%;
-    /* border: 1px solid black; */
-    border-radius: 8px;
-    /* border: 1px solid red; */
-    box-shadow: inset 0 0 10px #000000;
-    align-items: center;
+  display: flex;
+  background-color: #f3f3f3;
+  height: 100%;
+  /* border: 1px solid black; */
+  border-radius: 8px;
+  /* border: 1px solid red; */
+  align-items: center;
+  box-shadow: rgb(0 0 0 / 25%) 0px 30px 60px -12px inset, rgb(0 0 0 / 30%) 0px 18px 36px -18px inset;
 }
 
 .login{
-    display: flex;
-    background-color: #ffffff;
-    height: 100%;
-    /* border: 1px solid black; */
-    border-radius: 8px;
-    /* border: 1px solid red; */
-    box-shadow: inset 0 0 10px #000000;
-    align-items: center;
+  display: flex;
+  background-color: #f3f3f3;
+  height: 100%;
+  /* border: 1px solid black; */
+  border-radius: 8px;
+  /* border: 1px solid red; */
+  align-items: center;
+  box-shadow: rgb(0 0 0 / 25%) 0px 30px 60px -12px inset, rgb(0 0 0 / 30%) 0px 18px 36px -18px inset;
 }
 
 .regButton {
@@ -92,6 +92,7 @@ body {
   font-size: 16px;
   background: transparent;
   border: none;
+  font-family: 'Silkscreen';
   position: relative;
   color: #f0f0f0;
   z-index: 1;
@@ -213,19 +214,19 @@ body {
 }
 
 .btnLogin {
-    display: grid;
-    place-items: center;
-    background: #ffffff;
-    /* height: 39px; */
-    color: cornflowerblue;
-    font-weight: unset;
-    font-family: monospace;
-    padding: 0.4em;
-    border-radius: 10px;
-    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15), -6px -6px 10px -1px rgba(255,255,255,0.7);
-    border: 1px solid rgba(0,0,0,0);
-    cursor: pointer;
-    transition: transform 0.5s;
+  display: grid;
+  place-items: center;
+  background: #ffffff;
+  /* height: 39px; */
+  color: #b6b6b6db;
+  font-weight: unset;
+  font-family: monospace;
+  padding: 0.4em;
+  border-radius: 10px;
+  box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15), -6px -6px 10px -1px rgba(255,255,255,0.7);
+  border: 1px solid rgba(0,0,0,0);
+  cursor: pointer;
+  transition: transform 0.5s;
   }
   
   .btnLogin:hover {
@@ -250,6 +251,7 @@ body {
   .input {
     border: none;
     padding: 1rem;
+    font-family: monospace;
     border-radius: 1rem;
     background: #e8e8e8;
     box-shadow: 20px 20px 60px #c5c5c5,
@@ -264,3 +266,33 @@ body {
            inset -20px -20px 60px #ffffff;
     transition: 0.3s;
    }
+
+.main{
+  height: 80%;
+    width: 70%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    align-items: center;
+    border-radius: 2%;
+    background: #ffffff26;
+    
+}
+.mainPage{
+  display: flex;
+  height: 90%;
+  width: 90%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  align-items: center;
+  border-radius: 2%;
+  background: #ffffff26;
+}
+
+.pleReg{
+  
+  box-shadow: inset 0 0 10px #f8a100;
+}
+
+.h3{
+  font-family: 'Silkscreen', sans-serif;  
+    font-size: larger;
+}
+
