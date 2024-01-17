@@ -1,10 +1,23 @@
 <%- include("partials/mainHeader.ejs") %>
 
-<main class="form-signin w-100 m-auto d-flex justify-content-center login">
-    <div class="container mainPage">
-        
-    </div>
-</main>
+    <main class="form-signin w-100 m-auto d-flex justify-content-center login">
+        <div class="container _mainPage">
+            <% if(locals.sec){ %>
+                <div class="d-flex emuser">
+                    <h3 class="emScore">Embarrassment Score: <%= locals.em %></h3> <h3 class="username">Username: <%= locals.user %></h3>
+                </div>
+                <h1 class="secretH1">
+                    <%= sec %>
+                </h1>
+                <% }else if(locals.error){ %>
+                    <h1>
+                        <%= error %>
+                    </h1>
+            <% } %>
+        </div>
+                    <form action="/getRandom" method="get">
+                        <button class="randomButton" type="submit"> Random Secret </button>
+                    </form>
+    </main>
 
-<%- include("partials/footer.ejs") %>
-    
+    <%- include("partials/footer.ejs") %>

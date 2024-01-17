@@ -78,6 +78,7 @@ body {
 
 .login{
   display: flex;
+  flex-direction: column;
   background-color: #f3f3f3;
   height: 100%;
   /* border: 1px solid black; */
@@ -268,7 +269,7 @@ body {
    }
 
 .main{
-  height: 80%;
+   height: 80%;
     width: 70%;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     align-items: center;
@@ -278,6 +279,8 @@ body {
 }
 .mainPage{
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   height: 90%;
   width: 90%;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
@@ -299,3 +302,112 @@ body {
   font-family: 'Silkscreen', sans-serif;  
   font-size: larger;
 }
+
+.btnMain {
+  transition: all 0.3s ease-in-out;
+  font-family: "Dosis", sans-serif;
+}
+
+.btnMain {
+  margin: 11px;
+  height: 14%;
+  width: 34%;
+  border-radius: 50px;
+  background-image: linear-gradient(135deg, #ffffff 0%, #8d8d8dcf 100%);
+  box-shadow: 0 20px 30px -6px rgb(0 0 0 / 50%);
+  outline: none;
+  cursor: pointer;
+  border: none;
+  font-size: 24px;
+  color: white;
+}
+
+.btnMain:hover {
+  transform: translateY(3px);
+  box-shadow: none;
+}
+
+.btnMain:active {
+  opacity: 0.5;
+}
+
+/* Random Button css */
+
+.randomButton {
+  border: none;
+  color: #fff;
+  background-image: linear-gradient(30deg, #0400ff, #4ce3f7);
+  border-radius: 20px;
+  background-size: 100% auto;
+  font-family: inherit;
+  font-size: 17px;
+  padding: 0.6em 1.5em;
+ }
+ 
+.randomButton:hover {
+  background-position: right center;
+  background-size: 200% auto;
+  -webkit-animation: pulse 2s infinite;
+  animation: pulse512 1.5s infinite;
+ }
+ 
+ @keyframes pulse512 {
+  0% {
+   box-shadow: 0 0 0 0 #05bada66;
+  }
+ 
+  70% {
+   box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+  }
+ 
+  100% {
+   box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+  }
+ }
+
+ .secretH1{
+  text-align: center;
+  font-size: 2rem;
+ }
+
+ .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--bs-heading-color);
+}
+
+._mainPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 70%;
+  margin-bottom: 30px;
+  width: 86%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  align-items: center;
+  border-radius: 2%;
+  background: #ffffff26;
+}
+
+.emuser{
+  /* border: 1px solid black; */
+  width: 100%;
+}
+
+.emScore{
+  display: inline;
+  width: 50%;
+  font-size: larger;
+  font-weight: 400;
+}
+.username{
+  display: flex;
+  width: 50%;
+  font-size: larger;
+  font-weight: 400;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
