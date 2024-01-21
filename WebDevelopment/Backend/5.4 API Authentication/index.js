@@ -17,15 +17,15 @@ app.get("/", (req, res) => {
 
 app.get("/noAuth", async (req, res) => {
   //TODO 2: Use axios to hit up the /random endpoint
-    try {
-        const response = await axios.get('https://secrets-api.appbrewery.com/random');
-        const data = JSON.stringify(response.data);
-        res.render('../views/index.ejs',{content: data});
-    } catch (error) {
-      const status = error
-      const errors = `Too many request | Error: ${status.message}`;
-      res.render('../views/index.ejs',{content: errors});
-    }
+  try {
+    const response = await axios.get('https://secrets-api.appbrewery.com/random');
+    const data = JSON.stringify(response.data);
+    res.render('../views/index.ejs', { content: data });
+  } catch (error) {
+    const status = error
+    const errors = `Too many request | Error: ${status.message}`;
+    res.render('../views/index.ejs', { content: errors });
+  }
   //The data you get back should be sent to the ejs file as "content"
   //Hint: make sure you use JSON.stringify to turn the JS object from axios into a string.
 });
@@ -44,19 +44,19 @@ app.get("/basicAuth", async (req, res) => {
     });
   */
 
-    try {
-      const response = await axios.get('https://secrets-api.appbrewery.com/all?page=1', {
-          auth: {
-              username: `${yourUsername}`,
-              password: `${yourPassword}`,
-          }
-      });
-      res.render('../views/index.ejs', {content: JSON.stringify(response.data)});
-    } catch (error) {
-      const status = error
-      const errors = `Too many request | Error: ${status.message}`;
-      res.render('../views/index.ejs',{content: errors});
-    }
+  try {
+    const response = await axios.get('https://secrets-api.appbrewery.com/all?page=1', {
+      auth: {
+        username: `${yourUsername}`,
+        password: `${yourPassword}`,
+      }
+    });
+    res.render('../views/index.ejs', { content: JSON.stringify(response.data) });
+  } catch (error) {
+    const status = error
+    const errors = `Too many request | Error: ${status.message}`;
+    res.render('../views/index.ejs', { content: errors });
+  }
 
 });
 
@@ -66,12 +66,12 @@ app.get("/apiKey", async (req, res) => {
   //HINT: You need to provide a query parameter of apiKey in the request.
 
   try {
-      const response = await axios.get(`https://secrets-api.appbrewery.com/filter?score=5&apiKey=${yourAPIKey}`);
-      res.render('../views/index.ejs', {content: JSON.stringify(response.data)});
+    const response = await axios.get(`https://secrets-api.appbrewery.com/filter?score=5&apiKey=${yourAPIKey}`);
+    res.render('../views/index.ejs', { content: JSON.stringify(response.data) });
   } catch (error) {
     const status = error
     const errors = `Too many request | Error: ${status.message}`;
-    res.render('../views/index.ejs',{content: errors});
+    res.render('../views/index.ejs', { content: errors });
   }
 
 });
@@ -94,12 +94,12 @@ app.get("/bearerToken", async (req, res) => {
       headers: {
         Authorization: `Bearer ${yourBearerToken}`
       },
-  });
-  res.render('../views/index.ejs', {content: JSON.stringify(response.data)});
+    });
+    res.render('../views/index.ejs', { content: JSON.stringify(response.data) });
   } catch (error) {
     const status = error
     const errors = `Too many request | Error: ${status.message}`;
-    res.render('../views/index.ejs',{content: errors});
+    res.render('../views/index.ejs', { content: errors });
   }
 });
 
