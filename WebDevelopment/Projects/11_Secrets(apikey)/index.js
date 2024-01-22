@@ -64,12 +64,13 @@ app.get('/showSecret', (req, res) => {
 })
 
 app.post('/getsecret', [
-    check('api').notEmpty().withMessage('api key is required'),
+    check('apiK').notEmpty().withMessage('api key is required'),
 ], async (req, res) => {
     console.log("ok");
     const error = validationResult(req);
-    const api = req.body.api
+    const api = req.body.apiK;
     const ems = req.body.emScore;
+    console.log(api);
     if (!error.isEmpty) {
         res.render('secretsPage.ejs', { err: error.mapped() })
     } else {
