@@ -1,5 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
+import axios from "axios";
 
 const app = express();
 const port = 4000;
@@ -32,29 +33,60 @@ let posts = [
   },
 ];
 
-let lastId = 3;
+
 
 // Middleware
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
 //Write your code here//
 
 //CHALLENGE 1: GET All posts
-      app.get('/', (req,res)=>{
-        res.render('index.ejs', {posts: posts})
-      });
+    app.get('/posts', (req,res)=>{
+        res.json(posts);
+    })
 //CHALLENGE 2: GET a specific post by id
-      app.get('/:id', (req,res)=>{
-          
-      })
+    app.get('posts/:id', (req,res)=>{
+        const id = parseInt(req.params.id);
+        const posts = posts.find((joke)=> joke.id === id);
+        
+        res.json(posts);
+    })
 //CHALLENGE 3: POST a new post
-
+    app.post('/posts', (req,res)=>{
+        const newPost = {
+            id: posts[posts.length-1].id + 1,
+            title: req.body.title,
+            content: req.body.content,
+            author: req.body.author,
+            date: new Date()
+        }
+        // edge issue -> posts.push(newPost) and new Date();
+        posts.push(newPost);
+        res.status(200).json(newPost);
+    })
 //CHALLENGE 4: PATCH a post when you just want to update one parameter
-
+    app.patch('/posts/:id',(req,res)=>{
+      const id = parseInt(req.params.id);
+      const searchIndex = posts.findIndex((post)=> post.id === id);
+      posts[searchIndex] = {
+        id: id,
+        title: req.body.title || posts[searchIndex].title,
+        content: req.body.content || posts[searchIndex].content,
+        author: req.body.author || posts[searchIndex].author,
+        date: new Date() || posts[searchIndex].date
+      }
+      res.json(posts);
+    })
 //CHALLENGE 5: DELETE a specific post by providing the post id.
+    app.delete('/posts/:id', (req,res)=>{
+      const id = parseInt(req.body.id);
+      const searchIndex = posts.findIndex((post)=> post.id === id);
+      posts.splice(searchIndex, 1);
+      res.json({message: "Post Deleted"});
+    })
+
 
 app.listen(port, () => {
   console.log(`API is running at http://localhost:${port}`);
