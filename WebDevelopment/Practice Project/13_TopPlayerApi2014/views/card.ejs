@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Card</title>
+    <link rel="stylesheet" href="/static/card.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container cardMain">
+            <a class="button-confirm token" href="/tokenPage"><span>← Token</span></a>
+
+        <!-- <div class="search">
+            <input type="text" class="search__input" placeholder="Search card">
+            <button class="search__button">
+                <svg class="search__icon" aria-hidden="true" viewBox="0 0 24 24">
+                    <g>
+                        <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+                    </g>
+                </svg>
+            </button>
+        </div> -->
+        <div style="width: 22%; height: 0px;">
+
+            <div class="input__container">
+                <input placeholder="Enter Token Key" class="input" name="text" type="text" autocomplete="off">
+                <p class="input__description">Enter token key to unlock cards</p>
+            </div>
+        </div>
+        <% playerDetails.forEach(player=> { %>
+            <div class="card-client ">
+                <span class="potential">
+                    <%= player.potential %>
+                </span>
+                <div class="user-picture">
+                    <img class="<%= player.playerAlt %>" src="<%= player.playerImagePath %>"
+                        alt="<%= player.playerAlt %>">
+                </div>
+                <p class="name-client">
+                    <%= player.name %>
+                        <span>
+                            <%= player.position %>
+                        </span>
+                </p>
+                <div class="social-media text-center">
+                    <a href="#">
+                        <img class="nationImage" src="<%= player.nationalityImagePath %>" alt="<%= player.nationAlt %>">
+                        <span class="tooltip-social">
+                            <%= player.nationAlt %>
+                        </span>
+                    </a>
+                    <a href="#">
+                        <img class="teamImage" src="<%= player.teamImagePath %>" alt="<%= player.teamAlt %>">
+                        <span class="tooltip-social">
+                            <%= player.teamAlt %>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <% }); %>
+    </div>
+</body>
+
+</html>
