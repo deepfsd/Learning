@@ -211,3 +211,16 @@ body{
   filter: drop-shadow(1px 1px 3px rgba(0, 130, 237, 0.595));
 }
 
+#tokenKey {
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* CSS for when the paragraph is clicked */
+#tokenKey.clicked {
+  background-color: lightgray;
+}
+#tokenKey:hover {
+  background-color: rgb(241 238 238);
+}
+

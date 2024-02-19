@@ -9,7 +9,7 @@ const app = Express();
 const port = 4000;
 const api_url = 'http://localhost:3000';
 var __dirname = dirname(fileURLToPath(import.meta.url));
-const auth_Api_URL = 'http://localhost:5000';
+const auth_api_url = 'http://localhost:5000';
 
 const playerData = [
     {
@@ -76,7 +76,7 @@ app.post('/register', async (req, res) => {
 
     if (isUsernameValid && isPasswordValid) {
         try {
-            const response = await axios.post(`${auth_Api_URL}/register`, req.body,{
+            const response = await axios.post(`${auth_api_url}/register`, req.body,{
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'    // edge case: use headers while you use axios to provide req.body to api file.
                 }
@@ -92,7 +92,7 @@ app.post('/register', async (req, res) => {
     
 })
 
-app.post('/generateToken', (req,res)=>{
+app.post('/generateToken', async(req,res)=>{
     const tokenUser = req.body.username;
     const tokenPass = req.body.password;
     console.log(tokenUser);
@@ -101,14 +101,25 @@ app.post('/generateToken', (req,res)=>{
     const isPasswordValid = validationCheckPassword(tokenPass);
 
     if(isUsernameValid && isPasswordValid){
-        
+        const response = await axios.post(`${auth_api_url}/tokenGenerate`, req.body, {
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            }
+        });
+        const tokenKey = response.data.message;
+        if(!(tokenKey == "*invalid username & password")){
+            res.render('token.ejs', {key: tokenKey});
+        }else{
+            res.render('token.ejs', { invalidMessage: "*incorrect username & password" });
+        }
+
     }else{
         res.render('token.ejs', { invalidMessage: "*invalid username & password" });
     }
 })
 
 app.get('/cardPage', (req, res)=>{
-    res.render('card.ejs', {playerDetails: playerData});
+    res.render('lockCard.ejs', {playerDetails: playerData});
 })
 
 app.listen(port, () => {

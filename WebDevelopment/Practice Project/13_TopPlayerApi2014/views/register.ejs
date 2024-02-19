@@ -18,11 +18,11 @@
             <input class="input" name="password" placeholder="Password" type="password">
             <div class="login-with">
                 <% if(locals.successMessage){ %>
-                    <span style="color: green;">
+                    <span style="color: green;font-size: 10px;margin-left: 10px;font-weight: 700;">
                         <%= successMessage %>
                     </span>
                     <% }else if(locals.invalidMessage){ %>
-                        <span style="color: red;">
+                        <span style="color: red;font-size: 10px;margin-left: 10px;font-weight: 700;">
                             <%= locals.invalidMessage %> <br>
                                 <%= locals.userMessage %> <br>
                                     <%= locals.passMessage %>
