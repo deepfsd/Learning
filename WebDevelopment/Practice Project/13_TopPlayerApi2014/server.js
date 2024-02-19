@@ -126,6 +126,6 @@ app.listen(port, () => {
     console.log(`Server is running on port http://localhost:${port}`);
 })
 
-// facing problem to req.body to authAPI.js console.log(req.body.username);
+
 
 
