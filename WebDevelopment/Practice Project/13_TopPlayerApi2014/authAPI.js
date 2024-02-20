@@ -137,6 +137,13 @@ app.post("/tokenGenerate", (req,res)=>{
     }
 })
 
+app.post("/userTokenKey", (req, res)=>{
+    const userKey = req.body.userTokenKey;
+    const checkKey = tokenKeys.find((key) => key == userKey);
+    if(checkKey == userKey){
+        // send 
+    }
+})
 
 app.listen(port, ()=>{
     console.log(`Authentication API running on port http://localhost:${port}`);

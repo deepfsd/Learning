@@ -26,11 +26,12 @@
             </button>
         </div> -->
         <div style="width: 22%; height: 0px;">
-
-            <div class="input__container">
-                <input placeholder="Enter Token Key" class="input" name="text" type="text" autocomplete="off">
-                <p class="input__description">Enter token key to unlock cards</p>
-            </div>
+            <form action="/userTokenKey" method="post">
+                <div class="input__container">
+                    <input placeholder="Enter Token Key" class="input" name="userTokenKey" type="text" autocomplete="off">
+                    <p class="input__description">Enter token key to unlock cards</p><button class="btn-submit">Submit</button>
+                </div>
+            </form>
         </div>
         <% playerDetails.forEach(player=> { %>
             <div class="card-client ">

@@ -118,8 +118,25 @@ app.post('/generateToken', async(req,res)=>{
     }
 })
 
-app.get('/cardPage', (req, res)=>{
+app.get('/lockCardPage', (req, res)=>{
     res.render('lockCard.ejs', {playerDetails: playerData});
+})
+
+app.post('/userTokenKey',async (req,res)=>{
+    const key = req.body.userTokenKey;
+
+    const isKey = validationCheckPassword(key);
+
+    if(isKey){
+        const response = await axios.post(`${auth_api_url}/userTokenKey`, req.body, {
+            headers:{
+                "Content-Type": "application/x-www-form-urlencoded"
+            }
+        })
+    }else{
+        res.redirect('/lockCardPage');
+    }
+
 })
 
 app.listen(port, () => {
