@@ -4,7 +4,24 @@ body{
     justify-content: center;
     align-items: center;
     background-color: #e499ff;
-    background-image: radial-gradient(at 47% 69%, hsla(17,62%,65%,1) 0px, transparent 50%), radial-gradient(at 9% 32%, hsla(222,75%,60%,1) 0px, transparent 50%);
+    background-image: radial-gradient(at 47% 69%, #dd8e6e 0px, transparent 50%), radial-gradient(at 9% 32%, #4c7ae6 0px, transparent 50%);
+    animation: back 8s radial infinite;
+    border: none;
+}
+
+/* .btn-submit:hover {
+  animation: ani 8s linear infinite;
+  border: none;
+} */
+
+@keyframes back {
+  0% {
+    background-position: 0%;
+  }
+
+  100% {
+    background-position: 400%;
+  }
 }
 
 .form {

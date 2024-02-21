@@ -128,23 +128,38 @@ app.post('/userTokenKey',async (req,res)=>{
     const isKey = validationCheckPassword(key);
 
     if(isKey){
-        const response = await axios.post(`${auth_api_url}/userTokenKey`, req.body, {
-            headers:{
-                "Content-Type": "application/x-www-form-urlencoded"
+        try {
+            const response = await axios.post(`${auth_api_url}/userTokenKey`, req.body, {
+                headers:{
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }
+            });
+            if(response.data.message == "unlock"){
+                res.render('lockCard.ejs', {playerDetails: playerData, unlock: true});
+                // console.log("ok");
+            }else if(response.data.message == "lock"){
+                // res.redirect('/lockCardPage');
+                res.render('lockCard.ejs', {playerDetails: playerData, unlock: false, message: "Invalid Token Key"});
+                // console.log("not ok");
             }
-        });
-        if(response.data.message == "unlock"){
-            res.render('lockCard.ejs', {playerDetails: playerData, unlock: true});
-            // console.log("ok");
-        }else if(response.data.message == "lock"){
-            res.redirect('/lockCardPage');
-            // console.log("not ok");
+            
+        } catch (error) {
+            res.render('lockCard.ejs', {playerDetails: playerData, unlock: false, message: "please register page again server end problem"});
         }
     }else{
-        res.redirect('/lockCardPage');
+        res.render('lockCard.ejs', {playerDetails: playerData, unlock: false, message: "Invalid Token Key"});
     }
 
 })
+
+app.get('/unlockCardPage', (req,res)=>{
+    res.render('unlockCard.ejs', {playerDetails: playerData});
+})
+
+app.post('/searchPlayer', (req,res)=>{
+    console.log(req.body.player);
+    res.redirect('/unlockCardPage');
+});
 
 app.listen(port, () => {
     console.log(`Server is running on port http://localhost:${port}`);

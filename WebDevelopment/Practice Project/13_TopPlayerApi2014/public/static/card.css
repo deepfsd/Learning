@@ -6,7 +6,7 @@ body {
   line-height: var(--bs-body-line-height);
   color: var(--bs-body-color);
   text-align: var(--bs-body-text-align);
-  background-color: #e499ff;
+  background-color: #171c64;
   background-image: radial-gradient(at 47% 69%, hsla(17,62%,65%,1) 0px, transparent 50%), radial-gradient(at 9% 32%, hsla(222,75%,60%,1) 0px, transparent 50%);
 }
 
@@ -23,7 +23,7 @@ body {
 
 .card-client {
     /* background effect */
-    height: 58%;
+    height: 26rem;
     background-image: conic-gradient(#a0baf5, #fff0eb);
     background-size: 100% 100%;
     background-repeat: no-repeat;
