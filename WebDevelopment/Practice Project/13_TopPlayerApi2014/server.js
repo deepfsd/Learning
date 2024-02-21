@@ -132,7 +132,14 @@ app.post('/userTokenKey',async (req,res)=>{
             headers:{
                 "Content-Type": "application/x-www-form-urlencoded"
             }
-        })
+        });
+        if(response.data.message == "unlock"){
+            res.render('lockCard.ejs', {playerDetails: playerData, unlock: true});
+            // console.log("ok");
+        }else if(response.data.message == "lock"){
+            res.redirect('/lockCardPage');
+            // console.log("not ok");
+        }
     }else{
         res.redirect('/lockCardPage');
     }

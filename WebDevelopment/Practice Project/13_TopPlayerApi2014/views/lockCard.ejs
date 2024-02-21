@@ -14,9 +14,12 @@
 
     <div class="container cardMain">
             <a class="button-confirm token" href="/tokenPage"><span>← Token</span></a>
+       
 
-        <!-- <div class="search">
-            <input type="text" class="search__input" placeholder="Search card">
+            
+        <% if (locals.unlock) { %>
+            <div class="search">
+            <input type="text" class="search__input" placeholder="Player Name">
             <button class="search__button">
                 <svg class="search__icon" aria-hidden="true" viewBox="0 0 24 24">
                     <g>
@@ -24,17 +27,9 @@
                     </g>
                 </svg>
             </button>
-        </div> -->
-        <div style="width: 22%; height: 0px;">
-            <form action="/userTokenKey" method="post">
-                <div class="input__container">
-                    <input placeholder="Enter Token Key" class="input" name="userTokenKey" type="text" autocomplete="off">
-                    <p class="input__description">Enter token key to unlock cards</p><button class="btn-submit">Submit</button>
-                </div>
-            </form>
-        </div>
-        <% playerDetails.forEach(player=> { %>
-            <div class="card-client ">
+            </div>
+            <% playerDetails.forEach(player=> { %>
+            <div class="card-client">
                 <span class="potential">
                     <%= player.potential %>
                 </span>
@@ -64,6 +59,49 @@
                 </div>
             </div>
             <% }); %>
+       <% } else { %>
+
+        <div style="width: 22%; height: 0px;">
+            <form action="/userTokenKey" method="post">
+                <div class="input__container">
+                    <input placeholder="Enter Token Key" class="input" name="userTokenKey" type="text" autocomplete="off">
+                    <p class="input__description">Enter token key to unlock cards</p><button class="btn-submit">Submit</button>
+                </div>
+            </form>
+        </div>
+        <% playerDetails.forEach(player=> { %>
+            <div class="card-client card-blur">
+                <span class="potential">
+                    <%= player.potential %>
+                </span>
+                <div class="user-picture">
+                    <img class="<%= player.playerAlt %>" src="<%= player.playerImagePath %>"
+                        alt="<%= player.playerAlt %>">
+                </div>
+                <p class="name-client">
+                    <%= player.name %>
+                        <span>
+                            <%= player.position %>
+                        </span>
+                </p>
+                <div class="social-media text-center">
+                    <a href="#">
+                        <img class="nationImage" src="<%= player.nationalityImagePath %>" alt="<%= player.nationAlt %>">
+                        <span class="tooltip-social">
+                            <%= player.nationAlt %>
+                        </span>
+                    </a>
+                    <a href="#">
+                        <img class="teamImage" src="<%= player.teamImagePath %>" alt="<%= player.teamAlt %>">
+                        <span class="tooltip-social">
+                            <%= player.teamAlt %>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <% }); %>
+      <% } %>
+
     </div>
 </body>
 

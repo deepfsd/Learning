@@ -141,7 +141,9 @@ app.post("/userTokenKey", (req, res)=>{
     const userKey = req.body.userTokenKey;
     const checkKey = tokenKeys.find((key) => key == userKey);
     if(checkKey == userKey){
-        // send 
+         res.json({message: "unlock"});
+    }else{
+         res.json({message: "lock"});
     }
 })
 

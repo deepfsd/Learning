@@ -27,7 +27,6 @@ body {
     background-image: conic-gradient(#a0baf5, #fff0eb);
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-color: black;
     width: 18rem;
     padding-top: 25px;
     padding-bottom: 25px;
@@ -38,9 +37,11 @@ body {
     color: #fff;
     font-family: "Poppins", sans-serif;
     transition: all 0.3s ease;
-    filter: blur(5px);
 }
 
+.card-blur{
+  filter: blur(5px);
+}
 
 .card-client:hover {
     transform: translateY(-10px);
