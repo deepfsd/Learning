@@ -82,15 +82,14 @@ app.post('/register', async (req, res) => {
                 }
             });
             const message = response.data.message;
-            res.render('register.ejs', { successMessage: `*${message}` })
+            res.render('register.ejs', { successMessage: `*${message}` });
         } catch (error) {
             console.log("Error");
         }
     } else {
         res.render('register.ejs', { invalidMessage: "*invalid username & password", userMessage: "*username should more then 3 characters", passMessage: "*password should more then 6 characters" });
-    }
-    
-})
+    } 
+});
 
 app.post('/generateToken', async(req,res)=>{
     const tokenUser = req.body.username;
@@ -116,11 +115,11 @@ app.post('/generateToken', async(req,res)=>{
     }else{
         res.render('token.ejs', { invalidMessage: "*invalid username & password" });
     }
-})
+});
 
 app.get('/lockCardPage', (req, res)=>{
     res.render('lockCard.ejs', {playerDetails: playerData});
-})
+});
 
 app.post('/userTokenKey',async (req,res)=>{
     const key = req.body.userTokenKey;
@@ -142,19 +141,17 @@ app.post('/userTokenKey',async (req,res)=>{
                 res.render('lockCard.ejs', {playerDetails: playerData, unlock: false, message: "Invalid Token Key"});
                 // console.log("not ok");
             }
-            
         } catch (error) {
             res.render('lockCard.ejs', {playerDetails: playerData, unlock: false, message: "please register page again server end problem"});
         }
     }else{
         res.render('lockCard.ejs', {playerDetails: playerData, unlock: false, message: "Invalid Token Key"});
     }
-
-})
+});
 
 app.get('/unlockCardPage', (req,res)=>{
     res.render('unlockCard.ejs', {playerDetails: playerData});
-})
+});
 
 app.post('/searchPlayer', (req,res)=>{
     console.log(req.body.player);
@@ -163,8 +160,4 @@ app.post('/searchPlayer', (req,res)=>{
 
 app.listen(port, () => {
     console.log(`Server is running on port http://localhost:${port}`);
-})
-
-
-
-
+});
