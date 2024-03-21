@@ -1,18 +1,8 @@
 import express from "express";
 import bodyParser from "body-parser";
 import pg from "pg";
-
 const app = express();
 const port = 3000;
-const db = new pg.Client({
-  user: "postgres",
-  host: "localhost",
-  database: "world",
-  password: "Ronaldo@2002",
-  port: 5432,
-});
-
-db.connect();
 
 let totalCorrect = 0;
 
@@ -20,18 +10,26 @@ let totalCorrect = 0;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+const db = new pg.Client(
+  {
+    user: 'postgres',
+    password: 'Ronaldo@2002',
+    host: 'localhost',
+    port: '5432',
+    database: 'world'
+  }
+)
+db.connect();
 let quiz = [];
 
-db.query("SELECT * FROM flags", (err, res)=>{
-     if(err){
-        console.log("Error in excuting query", err.stack);
-     }else{
-       quiz = res.rows;
-       nextQuestion();
-     }
-     db.end();
+db.query("SELECT * FROM flags", (err,res)=>{
+  if(err){
+    console.log("Error excuting query", err.stack);
+  }else{
+    quiz = res.rows;
+  }
+  db.end();
 });
-
 let currentQuestion = {};
 
 // GET home page
@@ -46,9 +44,7 @@ app.get("/", (req, res) => {
 app.post("/submit", (req, res) => {
   let answer = req.body.answer.trim();
   let isCorrect = false;
-  let cq = currentQuestion.capital.toLowerCase();
-  let ca = answer.toLowerCase();
-  if (cq === ca) {
+  if (currentQuestion.capital.toLowerCase() === answer.toLowerCase()) {
     totalCorrect++;
     console.log(totalCorrect);
     isCorrect = true;
