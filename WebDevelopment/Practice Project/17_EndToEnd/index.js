@@ -1,10 +1,22 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import pg from 'pg';
 import session from 'express-session';
+import pg from 'pg';
+import { check, validationResult } from "express-validator";
 
 const app = express();
 const port = 3000;
+
+const db = new pg.Client(
+    {
+        user: 'postgres',
+        password: 'Ronaldo@2002',
+        host: 'localhost',
+        port: 5432,
+        database: 'toyshop'
+    }
+)
+db.connect();
 
 app.use(session({
     secret: 'secret-key',
@@ -12,54 +24,52 @@ app.use(session({
     saveUninitialized: false
 }))
 
-const db = new pg.Client(
-    {
-        user: 'postgres',
-        password: 'Ronaldo@2002',
-        host: 'localhost',
-        port: '5432',
-        database: 'myDatabase'
-    }
-)
-db.connect();
-
-async function getIndex(){
-    let id = [];
-    const result = await db.query('SELECT id FROM player');
-    result.rows.forEach(player => {
-        id.push(player.id);
-    });
-
-    return id;
-
-}
-
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('public'))
 
-app.get('/', async(req,res)=>{
-    const result = await db.query('SELECT * FROM player');
-    let player = [];
-    result.rows.forEach((players) => {
-        player.push(players.name);
-    });
-    const id = await getIndex();
-    console.log(id);
-    res.render('index.ejs', { playersid: id ,players: player});
+app.get('/', (req, res) => {
+    res.render('home.ejs');
+})
+
+app.get('/boys', (req, res) => {
+    res.render('boysPage.ejs');
+})
+
+app.get('/girls', (req, res) => {
+    res.render('girlsPage.ejs');
+})
+
+app.get('/login', (req, res) => {
+    res.render('loginPage.ejs');
+});
+app.get('/signup', async (req, res) => {
+    res.render('signupPage.ejs');
 });
 
-app.post('/add', async(req,res)=>{
-    const input = req.body.name;
-    console.log(input);
-    db.query('INSERT INTO player(id, name) VALUES($1, $2)', [4 ,input] );
-    res.redirect('/');
-})
+const validationcheck = [
+    check('name').notEmpty().withMessage('name is required'),
+    check('username').notEmpty().withMessage('username is required'),
+    check('password').notEmpty().withMessage('password is required'),
+]
 
+app.post('/submit',
+       validationcheck
+    , (req, res) => {
 
-app.post('/next', (req,res)=>{
+        // console.log(name.trim() === '');
+        const error = validationResult(req);
+        if (!error.isEmpty()) {
+            res.render('signupPage.ejs', {err: error.mapped()});
+        } else {
+            
+        }
+    })
+
+app.post('/next', (req, res) => {
     req.session.viewCount = req.body.next;
-    res.render('index2.ejs', {counts: req.session.viewCount});
+    res.render('index2.ejs', { counts: req.session.viewCount });
 })
 
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`)
 });
