@@ -216,4 +216,6 @@
 
 .red-placeholder::placeholder {
   color: red;
+  font-size: smaller;
+  font-weight: 100;
 }
