@@ -10,7 +10,7 @@ const db = new pg.Client({
   host: "localhost",
   database: "world",
   password: "Ronaldo@2002",
-  port: 5432,
+  port: 5432, 
 });
 db.connect();
 
@@ -19,13 +19,24 @@ app.use(express.static("public"));
 
 let currentUserId = 1;
 
-let users = [
-  { id: 1, name: "Angela", color: "teal" },
-  { id: 2, name: "Jack", color: "powderblue" },
-];
+
+
+async function getUser(){
+  let result = await db.query("SELECT * FROM users");
+
+  let userDetails = result.rows;
+
+  return userDetails;
+}
+
+async function currentUser(){
+  let result = await db.query("SELECT color FROM users WHERE id = $1", [currentUserId]);
+
+  return result.rows[0].color;
+}
 
 async function checkVisisted() {
-  const result = await db.query("SELECT country_code FROM visited_countries");
+  const result = await db.query("SELECT country_code FROM visited_countries WHERE user_id = $1", [currentUserId]);
   let countries = [];
   result.rows.forEach((country) => {
     countries.push(country.country_code);
@@ -34,11 +45,13 @@ async function checkVisisted() {
 }
 app.get("/", async (req, res) => {
   const countries = await checkVisisted();
-  res.render("index.ejs", {
+  let colors = await currentUser();
+  let users = await getUser();
+  res.render("index.ejs", { 
     countries: countries,
     total: countries.length,
     users: users,
-    color: "teal",
+    color: colors,
   });
 });
 app.post("/add", async (req, res) => {
@@ -65,11 +78,18 @@ app.post("/add", async (req, res) => {
     console.log(err);
   }
 });
-app.post("/user", async (req, res) => {});
+app.post("/user", async (req, res) => {
+
+    const user = req.body.user;
+    currentUserId = user;
+
+    res.redirect('/');
+
+});
 
 app.post("/new", async (req, res) => {
   //Hint: The RETURNING keyword can return the data that was inserted.
-  //https://www.postgresql.org/docs/current/dml-returning.html
+  //https://www.postgresql.org/docs/current/dml-returning.html adasdsad
 });
 
 app.listen(port, () => {
