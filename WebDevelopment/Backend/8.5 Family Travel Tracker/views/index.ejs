@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Travel Tracker</title>
   <link rel="stylesheet" href="./styles/main.css">
+   <style>
+      .error-placeholder::placeholder{
+          color: rgb(249, 79, 79);
+      }
+   </style>
 </head>
 
 <body>
@@ -23,7 +28,7 @@
   </form>
 
   <form action="/add" method="post">
-    <input type="text" name="country" autofocus placeholder="<%= locals.error ? error :  'Enter country name'%>">
+    <input type="text" name="country" autofocus placeholder="<%= locals.error ? error :  'Enter country name'%>" class="<%= locals.error ? 'error-placeholder' : '' %>">
     <button type="submit" style="background-color: <%= color %>;">Add</button>
   </form>
 

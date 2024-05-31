@@ -1,0 +1,11 @@
+{
+  "name": "12_bookdata",
+  "version": "1.0.0",
+  "description": "This project is based on a book review website where you can find books by recommandation or by latest etc..",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Deepanshu",
+  "license": "ISC"
+}
