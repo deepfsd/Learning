@@ -3,9 +3,17 @@
   "version": "1.0.0",
   "description": "This project is based on a book review website where you can find books by recommandation or by latest etc..",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Deepanshu",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.2",
+    "pg": "^8.11.5"
+  }
 }
